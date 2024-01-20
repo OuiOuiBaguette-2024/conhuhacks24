@@ -11,7 +11,7 @@ jobs:
       - name: Build and push (client)
         uses: docker/build-push-action@v5
         with:
-          context: client/volt-client
-          file: ./Dockerfile
+          context: .
+          file: ./client/volt-client/Dockerfile
           push: true
           tags: ghcr.io/alexandreondet/volt-client:latest
