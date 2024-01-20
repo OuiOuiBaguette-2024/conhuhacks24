@@ -26,11 +26,11 @@ jobs:
           context: ./client/volt-client
           file: ./client/volt-client/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-client:${{ env.GITHUB_REF_SLUG }}
+          tags: ghcr.io/ouiouibaguette-2024/volt-client:${{ env.GITHUB_REF_SLUG }}
       - name: Build and push (server)
         uses: docker/build-push-action@v5
         with:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-server:${{ env.GITHUB_REF_SLUG }}
+          tags: ghcr.io/ouiouibaguette-2024/volt-server:${{ env.GITHUB_REF_SLUG }}
