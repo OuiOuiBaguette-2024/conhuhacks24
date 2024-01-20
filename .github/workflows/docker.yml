@@ -24,11 +24,11 @@ jobs:
           context: ./client/volt-client
           file: ./client/volt-client/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-client:$GITHUB_REF_NAME
+          tags: ghcr.io/alexandreondet/volt-client:${{ github.ref_name }}
       - name: Build and push (server)
         uses: docker/build-push-action@v5
         with:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-server:$GITHUB_REF_NAME 
+          tags: ghcr.io/alexandreondet/volt-server:${{ github.ref_name }}
