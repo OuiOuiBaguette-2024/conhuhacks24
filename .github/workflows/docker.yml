@@ -24,7 +24,7 @@ jobs:
           context: ./client/volt-client
           file: ./client/volt-client/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-client:${{ GITHUB_REF_NAME }}
+          tags: ghcr.io/alexandreondet/volt-client:$GITHUB_REF_NAME
       - name: Build and push (server)
         uses: docker/build-push-action@v5
         with:
