@@ -11,7 +11,7 @@ RUN npm run build
 
 FROM base AS prod
 LABEL maintainer="oui oui baguette"
-LABEL org.opencontainers.image.description DESCRIPTION="NextJS frontend for Volt"
+LABEL org.opencontainers.image.description "NextJS frontend for Volt"
 
 WORKDIR /app
 
