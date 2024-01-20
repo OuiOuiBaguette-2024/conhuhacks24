@@ -20,7 +20,15 @@ jobs:
       - name: Build and push (client)
         uses: docker/build-push-action@v5
         with:
+          target: prod
           context: ./client/volt-client
           file: ./client/volt-client/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-client:latest
+          tags: ghcr.io/alexandreondet/volt-client:${{ vars.GITHUB_REF_NAME }}
+      - name: Build and push (server)
+        uses: docker/build-push-action@v5
+        with:
+          context: ./server
+          file: ./server/Dockerfile
+          push: true
+          tags: ghcr.io/alexandreondet/volt-server:${{ vars.GITHUB_REF_NAME }}  
