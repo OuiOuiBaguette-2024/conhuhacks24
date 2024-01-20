@@ -45,3 +45,10 @@ Dans le répertoire `server`:
 ```bash
 docker build --target prod -t volt-server .
 ```
+
+## Se connecter au registry de Github
+
+```bash
+export GITHUB_REGISTRY_PAT=<votre token>
+echo $GITHUB_REGISTRY_PAT | docker login ghcr.io -u <votre username> --password-stdin
+```

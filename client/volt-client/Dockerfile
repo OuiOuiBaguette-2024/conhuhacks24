@@ -14,7 +14,7 @@ RUN npm run build
 FROM base AS prod
 WORKDIR /app
 
-ENV NODE_ENV=prod
+ENV NODE_ENV=production
 RUN npm ci
 
 
