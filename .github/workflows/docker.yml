@@ -11,6 +11,8 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -24,11 +26,11 @@ jobs:
           context: ./client/volt-client
           file: ./client/volt-client/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-client:${{ github.ref_name }}
+          tags: ghcr.io/alexandreondet/volt-client:${{ env.GITHUB_REF_SLUG }}
       - name: Build and push (server)
         uses: docker/build-push-action@v5
         with:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ghcr.io/alexandreondet/volt-server:${{ github.ref_name }}
+          tags: ghcr.io/alexandreondet/volt-server:${{ env.GITHUB_REF_SLUG }}
