@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
 LABEL maintainer="oui oui baguette"
 LABEL org.opencontainers.image.description "FastAPI backend for Volt"
 
