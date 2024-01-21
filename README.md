@@ -1,4 +1,4 @@
-# ConUHacks VII (2024)
+# ConUHacks VIII (2024)
 
 ## Utilisation
 
