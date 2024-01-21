@@ -21,3 +21,4 @@ jobs:
           stack-name: volt
           stack-definiton: ./prod-docker-compose.yml
           pull-image: true
+          prune-stack: false
