@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import Union
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 from fastapi import FastAPI
 import requests
@@ -28,58 +28,91 @@ def read_api():
     r=requests.get("https://api.stm.info/pub/od/gtfs-rt/ic/v2/vehiclePositions/", headers={"accept": "application/x-protobuf", "apiKey": apiKey})
     return r.status_code
 
+def convert_time(time_str):
+    # Convert time with "24:" to the next day
+    if time_str.startswith("24:"):
+        time_str = "00" + time_str[2:]
+        return timedelta(days=1, hours=int(time_str[:2]), minutes=int(time_str[3:5]), seconds=int(time_str[6:]))
+    else:
+        return timedelta(hours=int(time_str[:2]), minutes=int(time_str[3:5]), seconds=int(time_str[6:]))
+
+
 @app.get("/api/metro")
 @app.get("/api/metro/{route_id}/{direction_id}/{timestamp}")
-def get_metro_coordinates(route_id=5, direction_id=0, timestamp=1705804156):
-    # Get all trips
+def get_metro_coordinates(route_id=5, direction_id=0, timestamp=0):
+    timestamp_datetime = datetime.utcfromtimestamp(int(timestamp))
+
     trips_df = feed.trips
+    direction_id = int(direction_id)
 
-    print("All trips:")
-    print(trips_df)
-
-    # Convert direction_id to the expected data type if needed
-    direction_id = int(direction_id)  # Adjust data type based on your GTFS data
-
-    # Filter trips based on the specified route_id and direction_id
     trips_df = trips_df[(trips_df['route_id'] == route_id) & (trips_df['direction_id'] == direction_id)]
-
-    print(f"Trips after filtering (route_id={route_id}, direction_id={direction_id}):")
-    print(trips_df)
 
     if trips_df.empty:
         return {"error": f"No metro trips found for the given route_id={route_id} and direction_id={direction_id}"}
 
-    # Get stoptimes for all selected trips
-    stoptimes_df = feed.stop_times
+    stop_times_df = feed.stop_times.merge(trips_df[['trip_id']], on='trip_id')
 
-    # Filter stoptimes based on the specified trip_ids
-    selected_trip_ids = trips_df['trip_id'].tolist()
-    stoptimes_for_selected_trips = stoptimes_df[stoptimes_df['trip_id'].isin(selected_trip_ids)]
+    first_last_stop_times = stop_times_df.groupby('trip_id').agg(
+        first_stop_sequence=('stop_sequence', 'min'),
+        last_stop_sequence=('stop_sequence', 'max'),
+        first_stop_time=('arrival_time', 'first'),
+        last_stop_time=('departure_time', 'last')
+    ).reset_index()
 
-    # Convert 'arrival_time' and 'departure_time' to Timestamp for proper comparison
-    stoptimes_for_selected_trips['arrival_time'] = pd.to_datetime(stoptimes_for_selected_trips['arrival_time'], errors='coerce')
-    stoptimes_for_selected_trips['departure_time'] = pd.to_datetime(stoptimes_for_selected_trips['departure_time'], errors='coerce')
+    first_last_stop_times['first_stop_time'] = timestamp_datetime.replace(hour=0, minute=0, second=0) + \
+                                               first_last_stop_times['first_stop_time'].apply(convert_time)
+    first_last_stop_times['last_stop_time'] = timestamp_datetime.replace(hour=0, minute=0, second=0) + \
+                                              first_last_stop_times['last_stop_time'].apply(convert_time)
 
-    # Adjust timestamps by adding 24 hours where "24:" is present
-    stoptimes_for_selected_trips['arrival_time'] += stoptimes_for_selected_trips['arrival_time'].apply(lambda x: timedelta(days=1) if "24:" in str(x) else timedelta(0))
-    stoptimes_for_selected_trips['departure_time'] += stoptimes_for_selected_trips['departure_time'].apply(lambda x: timedelta(days=1) if "24:" in str(x) else timedelta(0))
-
-    # Filter stoptimes based on the specified timestamp
-    timestamp = pd.to_datetime(timestamp, unit='s')  # Convert timestamp to datetime
-
-    in_transit_trains = stoptimes_for_selected_trips[
-        (stoptimes_for_selected_trips['arrival_time'] >= timestamp) &
-        (stoptimes_for_selected_trips['departure_time'] <= timestamp)
+    active_trips = first_last_stop_times[
+        (first_last_stop_times['first_stop_time'] <= timestamp_datetime) &
+        (timestamp_datetime <= first_last_stop_times['last_stop_time'])
     ]
 
-    if in_transit_trains.empty:
-        return {"error": f"No metro trains in transit for the given timestamp, route_id={route_id}, and direction_id={direction_id}"}
+    if active_trips.empty:
+        return {"message": "No active trips at the specified timestamp"}
 
-    # Get the location information for each train in transit
-    coordinates_list = []
-    for _, row in in_transit_trains.iterrows():
-        stop_id = row['stop_id']
-        stop_info = feed.stops[feed.stops['stop_id'] == stop_id].squeeze()
-        coordinates_list.append({"trip_id": row['trip_id'], "latitude": stop_info['stop_lat'], "longitude": stop_info['stop_lon']})
+    
+    result = []
+    stops_df = feed.stops
 
-    return coordinates_list
+
+    for index, active_trip in active_trips.iterrows():
+        trip_id = active_trip['trip_id']
+
+        # Get all stop times for the current trip
+        stop_times_trip_df = stop_times_df[stop_times_df['trip_id'] == trip_id]
+
+        # Extract date from timestamp_datetime
+        date_component = timestamp_datetime.strftime('%Y-%m-%d')
+
+        # Get the arrival and departure times for each stop in the trip
+        stop_times_trip_df['arrival_time'] = pd.to_datetime(stop_times_trip_df['arrival_time'], format='%H:%M:%S', errors='coerce')
+        stop_times_trip_df['departure_time'] = pd.to_datetime(stop_times_trip_df['departure_time'], format='%H:%M:%S', errors='coerce')
+
+        # Check if the timestamp is within the departure time of one station and the arrival time of the next station
+        for i in range(len(stop_times_trip_df) - 1):
+            # Replace NaT with a default date and then replace the date component
+            departure_time_current = pd.to_datetime(f"{date_component} {stop_times_trip_df.iloc[i]['departure_time'].time()}", format='%Y-%m-%d %H:%M:%S', errors='coerce')
+            arrival_time_next = pd.to_datetime(f"{date_component} {stop_times_trip_df.iloc[i + 1]['arrival_time'].time()}", format='%Y-%m-%d %H:%M:%S', errors='coerce')
+
+            if departure_time_current <= timestamp_datetime <= arrival_time_next:
+                current_stop_sequence = stop_times_trip_df.iloc[i]['stop_sequence']
+
+                # Get the stop after the current location
+                stop_after_df = stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence + 1]
+
+                # Check if the DataFrames are not empty before accessing iloc[0]
+                current_stop_df = stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence]
+                previous_stop_name = stops_df[stops_df['stop_id'] == current_stop_df['stop_id'].iloc[0]]['stop_name'].iloc[0] if not current_stop_df.empty else None
+                stop_after_name = stops_df[stops_df['stop_id'] == stop_after_df['stop_id'].iloc[0]]['stop_name'].iloc[0] if not stop_after_df.empty else None
+
+                result.append({
+                    "trip_id": trip_id,
+                    "route_id": route_id,
+                    "direction_id": direction_id,
+                    "previous_stop": previous_stop_name,
+                    "stop_after": stop_after_name
+                })
+
+    return {"active_trips": result}
