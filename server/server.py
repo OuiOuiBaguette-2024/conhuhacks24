@@ -100,31 +100,36 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=0):
                 current_stop_sequence = stop_times_trip_df.iloc[i]['stop_sequence']
 
                 # Get the stop before and after the current location
-                stop_before_df = pd.merge(stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence - 1], stops_df, how='left', on='stop_id')
                 stop_after_df = pd.merge(stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence + 1], stops_df, how='left', on='stop_id')
                 current_stop_df = pd.merge(stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence], stops_df, how='left', on='stop_id')
 
                 # Check if the DataFrames are not empty before accessing iloc[0]
                 current_stop = current_stop_df[['stop_name', 'stop_lat', 'stop_lon']].iloc[0] if not current_stop_df.empty else None
-                stop_before = stop_before_df[['stop_name', 'stop_lat', 'stop_lon']].iloc[0] if not stop_before_df.empty else None
                 stop_after = stop_after_df[['stop_name', 'stop_lat', 'stop_lon']].iloc[0] if not stop_after_df.empty else None
 
                 # Calculate the midpoint coordinates
-                if stop_before is not None and stop_after is not None:
-                    midpoint_lat = (stop_before['stop_lat'] + stop_after['stop_lat']) / 2
-                    midpoint_lon = (stop_before['stop_lon'] + stop_after['stop_lon']) / 2
-                    midpoint = {'lat': midpoint_lat, 'lon': midpoint_lon}
+                if current_stop is not None and stop_after is not None:
+                    time_elapsed = timestamp_datetime - departure_time_current
+                    time_to_next_stop = arrival_time_next - timestamp_datetime
+
+                    # Calculate the weighted average position
+                    weight_before = time_to_next_stop.total_seconds() / (time_elapsed.total_seconds() + time_to_next_stop.total_seconds())
+                    weight_after = 1 - weight_before
+
+                    position_lat = (weight_before * current_stop['stop_lat']) + (weight_after * stop_after['stop_lat'])
+                    position_lon = (weight_before * current_stop['stop_lon']) + (weight_after * stop_after['stop_lon'])
+                    
+                    position = {'lat': position_lat, 'lon': position_lon}
                 else:
-                    midpoint = None
+                    position = None
 
                 result.append({
                     "trip_id": trip_id,
                     "route_id": route_id,
                     "direction_id": direction_id,
                     "current_stop": current_stop,
-                    "stop_before": stop_before,
                     "stop_after": stop_after,
-                    "midpoint": midpoint
+                    "position": position
                 })
 
     return {"active_trips": result}
