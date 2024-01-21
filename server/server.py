@@ -104,14 +104,18 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=0):
 
                 # Check if the DataFrames are not empty before accessing iloc[0]
                 current_stop_df = stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence]
+                previous_stop_id = current_stop_df['stop_id'].iloc[0] if not current_stop_df.empty else None
                 previous_stop_name = stops_df[stops_df['stop_id'] == current_stop_df['stop_id'].iloc[0]]['stop_name'].iloc[0] if not current_stop_df.empty else None
+                stop_after_id = stop_after_df['stop_id'].iloc[0] if not stop_after_df.empty else None
                 stop_after_name = stops_df[stops_df['stop_id'] == stop_after_df['stop_id'].iloc[0]]['stop_name'].iloc[0] if not stop_after_df.empty else None
 
                 result.append({
                     "trip_id": trip_id,
                     "route_id": route_id,
                     "direction_id": direction_id,
+                    "previous_stop_id": previous_stop_id,
                     "previous_stop": previous_stop_name,
+                    "stop_after_id": stop_after_id,
                     "stop_after": stop_after_name
                 })
 
