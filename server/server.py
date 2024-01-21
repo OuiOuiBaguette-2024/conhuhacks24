@@ -56,6 +56,10 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=1705804156):
     selected_trip_ids = trips_df['trip_id'].tolist()
     stoptimes_for_selected_trips = stoptimes_df[stoptimes_df['trip_id'].isin(selected_trip_ids)]
 
+    # Adjust timestamps by adding 24 hours where "24:" is present
+    stoptimes_for_selected_trips['arrival_time'] += stoptimes_for_selected_trips['arrival_time'].apply(lambda x: timedelta(days=1) if "24:" in str(x) else timedelta(0))
+    stoptimes_for_selected_trips['departure_time'] += stoptimes_for_selected_trips['departure_time'].apply(lambda x: timedelta(days=1) if "24:" in str(x) else timedelta(0))
+
     # Convert 'arrival_time' and 'departure_time' to Timestamp for proper comparison
     stoptimes_for_selected_trips['arrival_time'] = pd.to_datetime(stoptimes_for_selected_trips['arrival_time'], errors='coerce')
     stoptimes_for_selected_trips['departure_time'] = pd.to_datetime(stoptimes_for_selected_trips['departure_time'], errors='coerce')
@@ -64,16 +68,12 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=1705804156):
     stoptimes_for_selected_trips['arrival_time'] += stoptimes_for_selected_trips['arrival_time'].apply(lambda x: timedelta(days=1) if "24:" in str(x) else timedelta(0))
     stoptimes_for_selected_trips['departure_time'] += stoptimes_for_selected_trips['departure_time'].apply(lambda x: timedelta(days=1) if "24:" in str(x) else timedelta(0))
 
-    # Adjust 'arrival_time' and 'departure_time' by replacing "24:" with "00:"
-    stoptimes_for_selected_trips['arrival_time'] = stoptimes_for_selected_trips['arrival_time'].dt.strftime('%H:%M:%S').replace("24:", "00:")
-    stoptimes_for_selected_trips['departure_time'] = stoptimes_for_selected_trips['departure_time'].dt.strftime('%H:%M:%S').replace("24:", "00:")
-
     # Filter stoptimes based on the specified timestamp
     timestamp = pd.to_datetime(timestamp, unit='s')  # Convert timestamp to datetime
 
     in_transit_trains = stoptimes_for_selected_trips[
-        (stoptimes_for_selected_trips['arrival_time'].dt.time >= timestamp.time()) &
-        (stoptimes_for_selected_trips['departure_time'].dt.time <= timestamp.time())
+        (stoptimes_for_selected_trips['arrival_time'] >= timestamp) &
+        (stoptimes_for_selected_trips['departure_time'] <= timestamp)
     ]
 
     if in_transit_trains.empty:
