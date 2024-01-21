@@ -1,10 +1,13 @@
 import * as turf from "@turf/turf";
 import { BBox } from "@turf/turf";
 import { LngLatLike, Map as MapBox } from "mapbox-gl";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+// @ts-ignore
+import { Threebox } from "threebox-plugin";
 import Metro from "../datasets/metro.geojson";
 import Montreal from "../datasets/montreal.geojson";
 import Stations from "../datasets/stations.geojson";
+import { LinesSettingsContext } from "../layout";
 
 interface IProps {
   width: string;
@@ -21,12 +24,14 @@ const DEFAULT_ZOOM = 10.816651549359792;
 const Map: React.FC<IProps> = ({ width, height }) => {
   const mapContainer = useRef(null);
   const map = useRef<MapBox | null>(null);
+  const { linesSettings } = useContext(LinesSettingsContext);
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [subwayCarts, setSubwayCarts] = useState(null);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new MapBox({
       container: mapContainer.current!,
-      style: "mapbox://styles/mapbox/standard",
       maxBounds: [
         [-73.92501255409634, 45.31122664381158],
         [-73.33552954479919, 45.874410582296235],
@@ -39,7 +44,18 @@ const Map: React.FC<IProps> = ({ width, height }) => {
       antialias: true,
     });
 
-    map.current.on("load", function () {
+    // @ts-ignore
+    const tb = (window.tb = new Threebox(
+      map.current,
+      map.current.getCanvas().getContext("webgl"),
+      {
+        defaultLights: true,
+      }
+    ));
+
+    map.current.on("style.load", function () {
+      setMapLoaded(true);
+
       (map.current! as any).setConfigProperty(
         "basemap",
         "lightPreset",
@@ -83,7 +99,7 @@ const Map: React.FC<IProps> = ({ width, height }) => {
           !feature.properties.name ||
           !feature.properties.name.includes("Ligne")
         ) {
-          return;
+          continue;
         }
 
         map.current!.addSource(feature.properties["@id"], {
@@ -118,8 +134,75 @@ const Map: React.FC<IProps> = ({ width, height }) => {
           "stations"
         );
       }
+
+      for (const color of ["orange", "blue", "green", "yellow"]) {
+        map.current!.addLayer({
+          id: `tram-${color}`,
+          type: "custom",
+          renderingMode: "3d",
+          onAdd: function () {
+            const scale = 0.1;
+            const options = {
+              obj: "/models/train.gltf",
+              type: "gltf",
+              scale: { x: scale, y: scale, z: scale },
+              units: "meters",
+              rotation: { x: 90, y: -90, z: 0 },
+            };
+
+            tb.loadObj(options, (model: any) => {
+              setSubwayCarts((subwayCarts) => ({
+                // @ts-ignore
+                ...subwayCarts,
+                [color]: model,
+              }));
+
+              model.setCoords(MAP_CENTER);
+              tb.add(model);
+            });
+          },
+          render: function () {
+            tb.update();
+          },
+        });
+      }
     });
   });
+
+  useEffect(() => {
+    if (!mapLoaded) return;
+    for (const [key, value] of Object.entries(linesSettings)) {
+      for (const feature of Metro.features) {
+        if (
+          feature.properties["name:en"] &&
+          feature.properties["name:en"].toLowerCase().includes(key)
+        ) {
+          map.current!.setLayoutProperty(
+            feature.properties["@id"],
+            "visibility",
+            value ? "visible" : "none"
+          );
+        }
+      }
+    }
+  }, [linesSettings, mapLoaded]);
+
+  useEffect(() => {
+    if (!mapLoaded || !subwayCarts) return;
+
+    setInterval(() => {
+      for (const [key, value] of Object.entries(subwayCarts)) {
+        const response = window.fetch('https://voltapi.mehdiben.me/api/metro/' + key + '/' + value + Date.now());
+        response.then((res) => { 
+          res.json().then((data) => {
+          console.log(data['active_trips'][0]['position']['lat']);
+          console.log("color", key);
+          console.log("tram", value);
+          (value as any).setCoords([data['active_trips'][0]['position']['lat'], data['active_trips'][0]['position']['lon']]);
+          });
+        });
+    } 1000});
+  }, [mapLoaded, subwayCarts]);
 
   return <div ref={mapContainer} style={{ width, height }} />;
 };
