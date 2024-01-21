@@ -1,10 +1,13 @@
 import * as turf from "@turf/turf";
 import { BBox } from "@turf/turf";
 import { LngLatLike, Map as MapBox } from "mapbox-gl";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+// @ts-ignore
+import { Threebox } from "threebox-plugin";
 import Metro from "../datasets/metro.geojson";
 import Montreal from "../datasets/montreal.geojson";
 import Stations from "../datasets/stations.geojson";
+import { LinesSettingsContext } from "../layout";
 
 interface IProps {
   width: string;
@@ -18,15 +21,19 @@ const MAP_BOUNDS = [
 ];
 const DEFAULT_ZOOM = 10.816651549359792;
 
+const test = () => {};
+
 const Map: React.FC<IProps> = ({ width, height }) => {
   const mapContainer = useRef(null);
   const map = useRef<MapBox | null>(null);
+  const { linesSettings } = useContext(LinesSettingsContext);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new MapBox({
       container: mapContainer.current!,
-      style: "mapbox://styles/mapbox/standard",
+      style: "mapbox://styles/mapbox/light-v11",
       maxBounds: [
         [-73.92501255409634, 45.31122664381158],
         [-73.33552954479919, 45.874410582296235],
@@ -39,12 +46,22 @@ const Map: React.FC<IProps> = ({ width, height }) => {
       antialias: true,
     });
 
-    map.current.on("load", function () {
-      (map.current! as any).setConfigProperty(
-        "basemap",
-        "lightPreset",
-        "night"
-      );
+    const tb = (window.tb = new Threebox(
+      map.current,
+      map.current.getCanvas().getContext("webgl"),
+      {
+        defaultLights: true,
+      }
+    ));
+
+    map.current.on("style.load", function () {
+      setMapLoaded(true);
+
+      // (map.current! as any).setConfigProperty(
+      //   "basemap",
+      //   "lightPreset",
+      //   "night"
+      // );
 
       map.current!.addSource("mask", {
         type: "geojson",
@@ -83,7 +100,7 @@ const Map: React.FC<IProps> = ({ width, height }) => {
           !feature.properties.name ||
           !feature.properties.name.includes("Ligne")
         ) {
-          return;
+          continue;
         }
 
         map.current!.addSource(feature.properties["@id"], {
@@ -118,8 +135,41 @@ const Map: React.FC<IProps> = ({ width, height }) => {
           "stations"
         );
       }
+
+      map.current!.addLayer({
+        id: "custom-threebox-model",
+        type: "custom",
+        renderingMode: "3d",
+        onAdd: function () {
+          var sphere = tb
+            .sphere({ color: "red", material: "MeshToonMaterial" })
+            .setCoords(origin);
+          tb.add(sphere);
+        },
+        render: function () {
+          tb.update();
+        },
+      });
     });
   });
+
+  useEffect(() => {
+    if (!mapLoaded) return;
+    for (const [key, value] of Object.entries(linesSettings)) {
+      for (const feature of Metro.features) {
+        if (
+          feature.properties["name:en"] &&
+          feature.properties["name:en"].toLowerCase().includes(key)
+        ) {
+          map.current!.setLayoutProperty(
+            feature.properties["@id"],
+            "visibility",
+            value ? "visible" : "none"
+          );
+        }
+      }
+    }
+  }, [linesSettings, mapLoaded]);
 
   return <div ref={mapContainer} style={{ width, height }} />;
 };
