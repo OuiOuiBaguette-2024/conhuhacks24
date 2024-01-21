@@ -23,7 +23,7 @@ updates:
     schedule:
       interval: "daily"
 
-  - package-ecosystem: "python"
+  - package-ecosystem: "pipS"
     # Look for a `Dockerfile` in the `root` directory
     directory: "/server"
     # Check for updates once a week
