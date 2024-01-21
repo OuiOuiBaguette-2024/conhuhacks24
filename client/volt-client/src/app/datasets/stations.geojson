@@ -1,0 +1,1921 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-01-21T00:32:14Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/208949374",
+        "name": "Guy-Concordia",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5798146,
+          45.4953505
+        ]
+      },
+      "id": "node/208949374"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/208949390",
+        "name": "Place-des-Arts",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5683367,
+          45.5080372
+        ]
+      },
+      "id": "node/208949390"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/208949406",
+        "name": "Saint-Laurent",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1705000",
+        "wikipedia": "en:Saint-Laurent station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5648225,
+          45.5109236
+        ]
+      },
+      "id": "node/208949406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/213329687",
+        "name": "Atwater",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5863126,
+          45.4896787
+        ]
+      },
+      "id": "node/213329687"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/218356349",
+        "name": "Joliette",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5511268,
+          45.5468903
+        ]
+      },
+      "id": "node/218356349"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/225689808",
+        "name": "Jolicoeur",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1702643",
+        "wikipedia": "en:Jolicoeur station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5820354,
+          45.4567578
+        ]
+      },
+      "id": "node/225689808"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/264271702",
+        "name": "Pie IX",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5515006,
+          45.5542002
+        ]
+      },
+      "id": "node/264271702"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/311564466",
+        "name": "Angrignon",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.603611,
+          45.4462277
+        ]
+      },
+      "id": "node/311564466"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1765620875",
+        "alt_name": "Metro Outremont",
+        "name": "Outremont",
+        "network": "Métro",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1633093",
+        "wikipedia": "en:Outremont station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6148897,
+          45.5201103
+        ]
+      },
+      "id": "node/1765620875"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5299904569",
+        "name": "Lionel-Groulx",
+        "name:fr": "Lionel-Groulx",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1978-09-03",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1704947",
+        "wikipedia": "fr:Lionel-Groulx (métro de Montréal)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5798959,
+          45.4827175
+        ]
+      },
+      "id": "node/5299904569"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5360360498",
+        "addr:city": "Montréal",
+        "addr:country": "CA",
+        "addr:housenumber": "955",
+        "addr:province": "QC",
+        "addr:street": "Rue Lucien-L'Allier",
+        "name": "Lucien L'Allier",
+        "operator": "Société de transport de Montréal",
+        "phone": "+1 514 786 4636",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "website": "http://www.stm.info/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5709494,
+          45.4950136
+        ]
+      },
+      "id": "node/5360360498"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6600830243",
+        "addr:city": "Longueuil",
+        "addr:housenumber": "100",
+        "addr:postcode": "J4K 2T4",
+        "addr:province": "QC",
+        "addr:street": "Place Charles-Le Moyne",
+        "alt_name": "Longueuil",
+        "name": "Longueuil–Université-de-Sherbrooke",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "short_name": "Longueuil-UdeS",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1869604",
+        "wikipedia": "en:Longueuil station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5219251,
+          45.5249263
+        ]
+      },
+      "id": "node/6600830243"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6600830244",
+        "name": "Côte-des-Neiges",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1150926",
+        "wikipedia": "en:Côte-des-Neiges station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.623489,
+          45.4966507
+        ]
+      },
+      "id": "node/6600830244"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6600856333",
+        "name": "Berri-UQAM",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "limited",
+        "wikidata": "Q827090",
+        "wikipedia": "en:Berri-UQAM station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5610756,
+          45.5151125
+        ]
+      },
+      "id": "node/6600856333"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6600874117",
+        "alt_name": "Île-Sainte-Hélène",
+        "name": "Jean-Drapeau",
+        "network": "STM",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1675164",
+        "wikipedia": "en:Jean-Drapeau station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5331259,
+          45.5124469
+        ]
+      },
+      "id": "node/6600874117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6607411941",
+        "name": "Villa-Maria",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1981-09-07",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1480912",
+        "wikipedia": "en:Villa-Maria station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6197272,
+          45.4795965
+        ]
+      },
+      "id": "node/6607411941"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6607411942",
+        "addr:city": "Montréal",
+        "addr:country": "CA",
+        "addr:province": "QC",
+        "addr:street": "Chemin Queen Mary",
+        "name": "Snowdon",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1981-09-07",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q179391",
+        "wikipedia": "en:Snowdon station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6283531,
+          45.4856705
+        ]
+      },
+      "id": "node/6607411942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6615202527",
+        "name": "Viau",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1892890",
+        "wikipedia": "en:Viau station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5473091,
+          45.5611109
+        ]
+      },
+      "id": "node/6615202527"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6615202528",
+        "addr:city": "Montréal",
+        "addr:housenumber": "6678",
+        "addr:postcode": "H4E 2L6",
+        "addr:province": "QC",
+        "addr:street": "Rue Allard",
+        "name": "Monk",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1550415",
+        "wikipedia": "en:Monk station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5932019,
+          45.4510439
+        ]
+      },
+      "id": "node/6615202528"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6615202529",
+        "name": "De l'Église",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1180127",
+        "wikipedia": "en:De L'Église station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5670231,
+          45.4627596
+        ]
+      },
+      "id": "node/6615202529"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6615202530",
+        "name": "Charlevoix",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wikidata": "Q1066736",
+        "wikipedia": "en:Charlevoix station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5693705,
+          45.4782496
+        ]
+      },
+      "id": "node/6615202530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6615202531",
+        "addr:housenumber": "3100",
+        "addr:street": "Rue Hochelaga",
+        "name": "Préfontaine",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1827087",
+        "wikipedia": "en:Préfontaine station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5542369,
+          45.5417253
+        ]
+      },
+      "id": "node/6615202531"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6831524451",
+        "name": "McGill",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1285503",
+        "wikipedia": "en:McGill station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5715471,
+          45.5041095
+        ]
+      },
+      "id": "node/6831524451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7041520765",
+        "name": "Cadillac",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q743385",
+        "wikipedia": "en:Cadillac station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5466995,
+          45.5768358
+        ]
+      },
+      "id": "node/7041520765"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7041520766",
+        "name": "Honoré-Beaugrand",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1627267",
+        "wikipedia": "en:Honoré-Beaugrand station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5354362,
+          45.596414
+        ]
+      },
+      "id": "node/7041520766"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471485",
+        "addr:city": "Montréal",
+        "addr:street": "Boulevard Saint-Michel",
+        "name": "Saint-Michel",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q176603",
+        "wikipedia": "en:Saint-Michel station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5999622,
+          45.5597489
+        ]
+      },
+      "id": "node/7052471485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471486",
+        "name": "D’Iberville",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1272978",
+        "wikipedia": "en:D'Iberville station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6024118,
+          45.5531676
+        ]
+      },
+      "id": "node/7052471486"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471487",
+        "name": "Fabre",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1390685",
+        "wikipedia": "en:Fabre station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6078016,
+          45.5467522
+        ]
+      },
+      "id": "node/7052471487"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471488",
+        "name": "Jean-Talon",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1386163",
+        "wikipedia": "en:Jean-Talon station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6134236,
+          45.5391835
+        ]
+      },
+      "id": "node/7052471488"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471489",
+        "name": "De Castelnau",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q971995",
+        "wikipedia": "en:De Castelnau station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6201056,
+          45.5352621
+        ]
+      },
+      "id": "node/7052471489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471490",
+        "name": "Parc",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q3095529",
+        "wikipedia": "en:Parc station (Montreal)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6245212,
+          45.530416
+        ]
+      },
+      "id": "node/7052471490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471491",
+        "name": "Acadie",
+        "network": "Métro",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q337414",
+        "wikipedia": "en:Acadie station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6237511,
+          45.523225
+        ]
+      },
+      "id": "node/7052471491"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471492",
+        "name": "Édouard-Montpetit",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q273870",
+        "wikipedia": "en:Édouard-Montpetit station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6125601,
+          45.5101227
+        ]
+      },
+      "id": "node/7052471492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052471493",
+        "name": "Université-de-Montréal",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q256462",
+        "wikipedia": "en:Université-de-Montréal station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.617581,
+          45.503439
+        ]
+      },
+      "id": "node/7052471493"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605729",
+        "addr:city": "Montréal",
+        "addr:housenumber": "1515",
+        "addr:province": "QC",
+        "addr:street": "Boulevard de la Côte-Vertu",
+        "name": "Côte-Vertu",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q543270",
+        "wikipedia": "en:Côte-Vertu station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6832845,
+          45.5142942
+        ]
+      },
+      "id": "node/7052605729"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605730",
+        "name": "Du Collège",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1984-01-09",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "limited",
+        "wikidata": "Q1262350",
+        "wikipedia": "en:Du Collège station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6728291,
+          45.5084616
+        ]
+      },
+      "id": "node/7052605730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605731",
+        "name": "De La Savane",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1984-01-09",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q652128",
+        "wikipedia": "en:De La Savane station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6617585,
+          45.5003752
+        ]
+      },
+      "id": "node/7052605731"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605732",
+        "name": "Namur",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1984-01-09",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1892936",
+        "wikipedia": "en:Namur station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6529072,
+          45.4949329
+        ]
+      },
+      "id": "node/7052605732"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605733",
+        "name": "Plamondon",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1982-06-29",
+        "station": "subway",
+        "subway": "yes",
+        "toilets:wheelchair": "no",
+        "train": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q980309",
+        "wikipedia": "en:Plamondon station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6379309,
+          45.4943703
+        ]
+      },
+      "id": "node/7052605733"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605734",
+        "name": "Côte-Sainte-Catherine",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1982-01-04",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1150920",
+        "wikipedia": "en:Côte-Sainte-Catherine station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6328602,
+          45.4923747
+        ]
+      },
+      "id": "node/7052605734"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605735",
+        "name": "Vendôme",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1981-09-07",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1593502",
+        "wikipedia": "en:Vendôme station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6038494,
+          45.4738859
+        ]
+      },
+      "id": "node/7052605735"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605736",
+        "name": "Place Saint-Henri",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1980-04-28",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1632321",
+        "wikipedia": "en:Place-Saint-Henri station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.586572,
+          45.4771794
+        ]
+      },
+      "id": "node/7052605736"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605737",
+        "name": "Georges-Vanier",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1980-04-28",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1508769",
+        "wikipedia": "en:Georges-Vanier station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5764721,
+          45.4889521
+        ]
+      },
+      "id": "node/7052605737"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605738",
+        "addr:city": "Montreal",
+        "addr:country": "CA",
+        "addr:housenumber": "1166",
+        "addr:province": "QC",
+        "addr:street": "Rue de La Gauchetière Ouest",
+        "name": "Bonaventure",
+        "note": "Elevator but not wheelchair accessible",
+        "operator": "Société de transport de Montréal",
+        "phone": "+1 514 786 4636",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1967-02-13",
+        "station": "subway",
+        "subway": "yes",
+        "website": "http://www.stm.info/",
+        "wheelchair": "no",
+        "wikidata": "Q525279",
+        "wikipedia": "en:Bonaventure station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5669583,
+          45.4981853
+        ]
+      },
+      "id": "node/7052605738"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605739",
+        "name": "Square-Victoria-OACI",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1967-02-06",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1463336",
+        "wikipedia": "en:Square-Victoria-OACI station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5631107,
+          45.50209
+        ]
+      },
+      "id": "node/7052605739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605740",
+        "name": "Place d’Armes",
+        "name:ko": "다름광장",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1495111",
+        "wikipedia": "en:Place-d'Armes station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.559605,
+          45.5060856
+        ]
+      },
+      "id": "node/7052605740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605741",
+        "name": "Champ-de-Mars",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1061011",
+        "wikipedia": "en:Champ-de-Mars station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.556487,
+          45.5101439
+        ]
+      },
+      "id": "node/7052605741"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605742",
+        "name": "Sherbrooke",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q932594",
+        "wikipedia": "en:Sherbrooke station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5680527,
+          45.5187201
+        ]
+      },
+      "id": "node/7052605742"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605743",
+        "name": "Mont-Royal",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1632640",
+        "wikipedia": "en:Mont-Royal station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5816468,
+          45.5245985
+        ]
+      },
+      "id": "node/7052605743"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605744",
+        "name": "Laurier",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1632291",
+        "wikipedia": "en:Laurier station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5883784,
+          45.5280804
+        ]
+      },
+      "id": "node/7052605744"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605745",
+        "elevator": "yes",
+        "name": "Rosemont",
+        "operator": "Société de transport de Montréal",
+        "platforms": "2",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1633672",
+        "wikipedia": "en:Rosemont station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5973383,
+          45.5314962
+        ]
+      },
+      "id": "node/7052605745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605746",
+        "name": "Beaubien",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q813338",
+        "wikipedia": "en:Beaubien station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6046246,
+          45.5351198
+        ]
+      },
+      "id": "node/7052605746"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605747",
+        "name": "Jarry",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1634277",
+        "wikipedia": "en:Jarry station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6285331,
+          45.5433578
+        ]
+      },
+      "id": "node/7052605747"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605748",
+        "name": "Crémazie",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wikidata": "Q1142496",
+        "wikipedia": "en:Crémazie station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6388375,
+          45.5461436
+        ]
+      },
+      "id": "node/7052605748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605749",
+        "name": "Sauvé",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wikidata": "Q1634285",
+        "wikipedia": "en:Sauvé station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6564248,
+          45.5510763
+        ]
+      },
+      "id": "node/7052605749"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605750",
+        "name": "Henri-Bourassa",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "start_date": "1966-10-14",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "limited",
+        "wikidata": "Q1605659",
+        "wikipedia": "en:Henri-Bourassa station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6682516,
+          45.5545124
+        ]
+      },
+      "id": "node/7052605750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052605751",
+        "name": "De la Concorde",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "limited",
+        "wikidata": "Q1180063",
+        "wikipedia": "en:De La Concorde station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7097434,
+          45.560853
+        ]
+      },
+      "id": "node/7052605751"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052949183",
+        "name": "Radisson",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1827231",
+        "wikipedia": "en:Radisson station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5397875,
+          45.5896475
+        ]
+      },
+      "id": "node/7052949183"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052949184",
+        "name": "Langelier",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wikidata": "Q1705135",
+        "wikipedia": "en:Langelier station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5431577,
+          45.5827257
+        ]
+      },
+      "id": "node/7052949184"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992085",
+        "internet_access": "no",
+        "name": "Assomption",
+        "network": "STM",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q538758",
+        "wikipedia": "en:Assomption station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5467318,
+          45.5693911
+        ]
+      },
+      "id": "node/7052992085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992086",
+        "name": "Pie IX",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1892913",
+        "wikipedia": "en:Pie-IX station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5515329,
+          45.5541959
+        ]
+      },
+      "id": "node/7052992086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992087",
+        "name": "Joliette",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1249429",
+        "wikipedia": "en:Joliette station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5510099,
+          45.5469325
+        ]
+      },
+      "id": "node/7052992087"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992088",
+        "check_date:wheelchair": "2024-01-06",
+        "name": "Frontenac",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q183022",
+        "wikipedia": "en:Frontenac station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5522155,
+          45.5331536
+        ]
+      },
+      "id": "node/7052992088"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992089",
+        "name": "Papineau",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1892925",
+        "wikipedia": "en:Papineau station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5521686,
+          45.5237396
+        ]
+      },
+      "id": "node/7052992089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992090",
+        "name": "Beaudry",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q813363",
+        "wikipedia": "en:Beaudry station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5559049,
+          45.5190396
+        ]
+      },
+      "id": "node/7052992090"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992091",
+        "name": "Saint-Laurent",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1705000",
+        "wikipedia": "en:Saint-Laurent station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5648092,
+          45.5108831
+        ]
+      },
+      "id": "node/7052992091"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992092",
+        "name": "Place-des-Arts",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1889985",
+        "wikipedia": "en:Place-des-Arts station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5683162,
+          45.5080307
+        ]
+      },
+      "id": "node/7052992092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992094",
+        "name": "Peel",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1616425",
+        "wikipedia": "en:Peel station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5750881,
+          45.5006095
+        ]
+      },
+      "id": "node/7052992094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992095",
+        "name": "Guy-Concordia",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "train": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q183268",
+        "wikipedia": "en:Guy-Concordia station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5798383,
+          45.4953736
+        ]
+      },
+      "id": "node/7052992095"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992096",
+        "name": "Atwater",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q138609",
+        "wikipedia": "fr:Atwater (métro de Montréal)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5863426,
+          45.4897865
+        ]
+      },
+      "id": "node/7052992096"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992097",
+        "name": "LaSalle",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1798572",
+        "wikipedia": "en:LaSalle station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5661308,
+          45.4708146
+        ]
+      },
+      "id": "node/7052992097"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992098",
+        "name": "Verdun",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no",
+        "wikidata": "Q586219",
+        "wikipedia": "en:Verdun station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5720103,
+          45.4592869
+        ]
+      },
+      "id": "node/7052992098"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992099",
+        "addr:city": "Montréal",
+        "addr:housenumber": "6200",
+        "addr:postcode": "H4E 4J6",
+        "addr:province": "QC",
+        "addr:street": "Rue Drake",
+        "name": "Jolicoeur",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "no",
+        "wikidata": "Q1702643",
+        "wikipedia": "en:Jolicoeur station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5819981,
+          45.45686
+        ]
+      },
+      "id": "node/7052992099"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7052992100",
+        "addr:city": "Montréal",
+        "addr:housenumber": "3500",
+        "addr:province": "QC",
+        "addr:street": "Boulevard des Trinitaires",
+        "name": "Angrignon",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q543509",
+        "wikipedia": "en:Angrignon station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6036506,
+          45.4461825
+        ]
+      },
+      "id": "node/7052992100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7757580977",
+        "internet_access": "no",
+        "name": "Montmorency",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "limited",
+        "wikidata": "Q1352971",
+        "wikipedia": "en:Montmorency station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7215179,
+          45.5583531
+        ]
+      },
+      "id": "node/7757580977"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7758614182",
+        "alt_name": "Métro Cartier",
+        "name": "Cartier",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "station",
+        "railway": "station",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q1045964",
+        "wikipedia": "en:Cartier station (Montreal Metro)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6818035,
+          45.5602232
+        ]
+      },
+      "id": "node/7758614182"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10905645589",
+        "name": "Angrignon",
+        "operator": "Société de Transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6035778,
+          45.4462029
+        ]
+      },
+      "id": "node/10905645589"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10934212937",
+        "name": "Jolicoeur",
+        "network": "Société de Transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5819839,
+          45.45675
+        ]
+      },
+      "id": "node/10934212937"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10938614688",
+        "name": "Verdun",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5731629,
+          45.4594567
+        ]
+      },
+      "id": "node/10938614688"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10938614689",
+        "name": "Verdun",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5731663,
+          45.4594242
+        ]
+      },
+      "id": "node/10938614689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11483331210",
+        "name": "Beaudry",
+        "operator": "Société de transport de Montréal",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "station": "subway",
+        "subway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5571619,
+          45.5195426
+        ]
+      },
+      "id": "node/11483331210"
+    }
+  ]
+}
