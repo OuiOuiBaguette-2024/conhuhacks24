@@ -2,16 +2,11 @@ version: "3.9"
 
 services:
   front:
-    build:
-      context: ./client/volt-client
-      dockerfile: Dockerfile
-      target: prod
+    image: ghcr.io/ouiouibaguette-2024/volt-client:main
     ports:
       - "3000:3000"
   back:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    image: ghcr.io/ouiouibaguette-2024/volt-server:main
     ports:
       - "8000:8000"
     volumes:

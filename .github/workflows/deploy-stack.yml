@@ -1,0 +1,23 @@
+name: Deploy stack to Self-hosted Portainer
+
+on:
+  push:
+    tags:
+      - '*-DEPLOY'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy stack
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy stack to Portainer
+        uses: carlrygart/portainer-stack-deploy@v1
+        with:
+          portainer-host: https://portainer.mehdiben.me
+          username: mehdi
+          password: ${{ secrets.PORTAINER_PAT }}
+          stack-name: volt
+          stack-definiton: ./prod-docker-compose.yml
+          pull-image: true
