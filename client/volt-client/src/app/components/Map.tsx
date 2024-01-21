@@ -2,6 +2,7 @@ import * as turf from "@turf/turf";
 import { BBox } from "@turf/turf";
 import { LngLatLike, Map as MapBox } from "mapbox-gl";
 import { useEffect, useRef } from "react";
+import { io } from "socket.io-client";
 import Metro from "../datasets/metro.geojson";
 import Montreal from "../datasets/montreal.geojson";
 import Stations from "../datasets/stations.geojson";
@@ -119,9 +120,17 @@ const Map: React.FC<IProps> = ({ width, height }) => {
         );
       }
     });
+
+    const socket = io("ws://localhost:8001");
+
+    socket.on("connect", () => {
+      socket.emit("subscribe", "stations");
+    });
+    
   });
 
   return <div ref={mapContainer} style={{ width, height }} />;
 };
 
 export default Map;
+
