@@ -192,12 +192,16 @@ const Map: React.FC<IProps> = ({ width, height }) => {
 
     setInterval(() => {
       for (const [key, value] of Object.entries(subwayCarts)) {
-        // HERE CALL THE BACKEND WITH THE LINE COLOR AND GET THE COORDS
-        console.log("color", key);
-        console.log("tram", value);
-        (value as any).setCoords([-73.6273348, 45.4892882]);
-      }
-    }, 1000);
+        const response = window.fetch('https://voltapi.mehdiben.me/api/metro/' + key + '/' + value + Date.now());
+        response.then((res) => { 
+          res.json().then((data) => {
+          console.log(data['active_trips'][0]['position']['lat']);
+          console.log("color", key);
+          console.log("tram", value);
+          (value as any).setCoords([data['active_trips'][0]['position']['lat'], data['active_trips'][0]['position']['lon']]);
+          });
+        });
+    } 1000});
   }, [mapLoaded, subwayCarts]);
 
   return <div ref={mapContainer} style={{ width, height }} />;
