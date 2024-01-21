@@ -2,8 +2,8 @@ name: Build and push Docker images to GHCR
 
 on:
   push:
-  tags:
-    - '*'
+    tags:
+      - '*'
 
 jobs:
   build-and-push:
