@@ -6,14 +6,13 @@ services:
       context: ./client/volt-client
       dockerfile: Dockerfile
       target: dev
-    env_file: .env.dev
     ports:
       - "3000:3000"
   back:
     build:
       context: ./server
       dockerfile: Dockerfile
-    env_file: .env.dev
+    env_file: server/.env
     ports:
       - "8000:8000"
     volumes:

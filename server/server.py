@@ -70,9 +70,10 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=1705804156):
 
     # Filter stoptimes based on the specified timestamp
     timestamp = pd.to_datetime(timestamp, unit='s')  # Convert timestamp to datetime
+
     in_transit_trains = stoptimes_for_selected_trips[
-        (stoptimes_for_selected_trips['arrival_time'] <= timestamp) &
-        (stoptimes_for_selected_trips['departure_time'] >= timestamp)
+        (stoptimes_for_selected_trips['arrival_time'].dt.time >= timestamp.time()) &
+        (stoptimes_for_selected_trips['departure_time'].dt.time <= timestamp.time())
     ]
 
     if in_transit_trains.empty:
