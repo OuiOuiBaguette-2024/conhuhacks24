@@ -21,19 +21,17 @@ const MAP_BOUNDS = [
 ];
 const DEFAULT_ZOOM = 10.816651549359792;
 
-const test = () => {};
-
 const Map: React.FC<IProps> = ({ width, height }) => {
   const mapContainer = useRef(null);
   const map = useRef<MapBox | null>(null);
   const { linesSettings } = useContext(LinesSettingsContext);
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [subwayCarts, setSubwayCarts] = useState(null);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new MapBox({
       container: mapContainer.current!,
-      style: "mapbox://styles/mapbox/light-v11",
       maxBounds: [
         [-73.92501255409634, 45.31122664381158],
         [-73.33552954479919, 45.874410582296235],
@@ -46,6 +44,7 @@ const Map: React.FC<IProps> = ({ width, height }) => {
       antialias: true,
     });
 
+    // @ts-ignore
     const tb = (window.tb = new Threebox(
       map.current,
       map.current.getCanvas().getContext("webgl"),
@@ -57,11 +56,11 @@ const Map: React.FC<IProps> = ({ width, height }) => {
     map.current.on("style.load", function () {
       setMapLoaded(true);
 
-      // (map.current! as any).setConfigProperty(
-      //   "basemap",
-      //   "lightPreset",
-      //   "night"
-      // );
+      (map.current! as any).setConfigProperty(
+        "basemap",
+        "lightPreset",
+        "night"
+      );
 
       map.current!.addSource("mask", {
         type: "geojson",
@@ -136,20 +135,37 @@ const Map: React.FC<IProps> = ({ width, height }) => {
         );
       }
 
-      map.current!.addLayer({
-        id: "custom-threebox-model",
-        type: "custom",
-        renderingMode: "3d",
-        onAdd: function () {
-          var sphere = tb
-            .sphere({ color: "red", material: "MeshToonMaterial" })
-            .setCoords(origin);
-          tb.add(sphere);
-        },
-        render: function () {
-          tb.update();
-        },
-      });
+      for (const color of ["orange", "blue", "green", "yellow"]) {
+        map.current!.addLayer({
+          id: `tram-${color}`,
+          type: "custom",
+          renderingMode: "3d",
+          onAdd: function () {
+            const scale = 0.1;
+            const options = {
+              obj: "/models/train.gltf",
+              type: "gltf",
+              scale: { x: scale, y: scale, z: scale },
+              units: "meters",
+              rotation: { x: 90, y: -90, z: 0 },
+            };
+
+            tb.loadObj(options, (model: any) => {
+              setSubwayCarts((subwayCarts) => ({
+                // @ts-ignore
+                ...subwayCarts,
+                [color]: model,
+              }));
+
+              model.setCoords(MAP_CENTER);
+              tb.add(model);
+            });
+          },
+          render: function () {
+            tb.update();
+          },
+        });
+      }
     });
   });
 
@@ -170,6 +186,19 @@ const Map: React.FC<IProps> = ({ width, height }) => {
       }
     }
   }, [linesSettings, mapLoaded]);
+
+  useEffect(() => {
+    if (!mapLoaded || !subwayCarts) return;
+
+    setInterval(() => {
+      for (const [key, value] of Object.entries(subwayCarts)) {
+        // HERE CALL THE BACKEND WITH THE LINE COLOR AND GET THE COORDS
+        console.log("color", key);
+        console.log("tram", value);
+        (value as any).setCoords([-73.6273348, 45.4892882]);
+      }
+    }, 1000);
+  }, [mapLoaded, subwayCarts]);
 
   return <div ref={mapContainer} style={{ width, height }} />;
 };
