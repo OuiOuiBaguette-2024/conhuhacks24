@@ -16,7 +16,7 @@ jobs:
         uses: nvti/portainer-stack-deploy@v1.4
         with:
           portainer-host: https://portainer.mehdiben.me
-          username: mehdi
+          username: github-agent
           password: ${{ secrets.PORTAINER_PAT }}
           stack-name: volt
           stack-definiton: ./prod-docker-compose.yml
