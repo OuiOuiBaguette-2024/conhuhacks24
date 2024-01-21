@@ -17,6 +17,8 @@ path = Path('data/gtfs_stm.zip')
 feed = gk.read_feed(path, dist_units='km')
 feed.validate()
 
+stops_df = feed.stops
+shapes_df = feed.shapes
 
 @app.get("/")
 def read_root():
@@ -41,7 +43,6 @@ def convert_time(time_str):
 @app.get("/api/metro/{route_id}/{direction_id}/{timestamp}")
 def get_metro_coordinates(route_id=5, direction_id=0, timestamp=0):
     timestamp_datetime = datetime.utcfromtimestamp(int(timestamp))
-
     trips_df = feed.trips
     direction_id = int(direction_id)
 
@@ -74,7 +75,6 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=0):
 
     
     result = []
-    stops_df = feed.stops
 
 
     for index, active_trip in active_trips.iterrows():
@@ -99,24 +99,32 @@ def get_metro_coordinates(route_id=5, direction_id=0, timestamp=0):
             if departure_time_current <= timestamp_datetime <= arrival_time_next:
                 current_stop_sequence = stop_times_trip_df.iloc[i]['stop_sequence']
 
-                # Get the stop after the current location
-                stop_after_df = stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence + 1]
+                # Get the stop before and after the current location
+                stop_before_df = pd.merge(stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence - 1], stops_df, how='left', on='stop_id')
+                stop_after_df = pd.merge(stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence + 1], stops_df, how='left', on='stop_id')
+                current_stop_df = pd.merge(stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence], stops_df, how='left', on='stop_id')
 
                 # Check if the DataFrames are not empty before accessing iloc[0]
-                current_stop_df = stop_times_trip_df[stop_times_trip_df['stop_sequence'] == current_stop_sequence]
-                previous_stop_id = current_stop_df['stop_id'].iloc[0] if not current_stop_df.empty else None
-                previous_stop_name = stops_df[stops_df['stop_id'] == current_stop_df['stop_id'].iloc[0]]['stop_name'].iloc[0] if not current_stop_df.empty else None
-                stop_after_id = stop_after_df['stop_id'].iloc[0] if not stop_after_df.empty else None
-                stop_after_name = stops_df[stops_df['stop_id'] == stop_after_df['stop_id'].iloc[0]]['stop_name'].iloc[0] if not stop_after_df.empty else None
+                current_stop = current_stop_df[['stop_name', 'stop_lat', 'stop_lon']].iloc[0] if not current_stop_df.empty else None
+                stop_before = stop_before_df[['stop_name', 'stop_lat', 'stop_lon']].iloc[0] if not stop_before_df.empty else None
+                stop_after = stop_after_df[['stop_name', 'stop_lat', 'stop_lon']].iloc[0] if not stop_after_df.empty else None
+
+                # Calculate the midpoint coordinates
+                if stop_before is not None and stop_after is not None:
+                    midpoint_lat = (stop_before['stop_lat'] + stop_after['stop_lat']) / 2
+                    midpoint_lon = (stop_before['stop_lon'] + stop_after['stop_lon']) / 2
+                    midpoint = {'lat': midpoint_lat, 'lon': midpoint_lon}
+                else:
+                    midpoint = None
 
                 result.append({
                     "trip_id": trip_id,
                     "route_id": route_id,
                     "direction_id": direction_id,
-                    "previous_stop_id": previous_stop_id,
-                    "previous_stop": previous_stop_name,
-                    "stop_after_id": stop_after_id,
-                    "stop_after": stop_after_name
+                    "current_stop": current_stop,
+                    "stop_before": stop_before,
+                    "stop_after": stop_after,
+                    "midpoint": midpoint
                 })
 
     return {"active_trips": result}
