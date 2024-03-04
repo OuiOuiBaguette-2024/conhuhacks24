@@ -11,14 +11,14 @@
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "@turf/turf": "^6.5.0",
-    "mapbox-gl": "^3.1.0",
+    "mapbox-gl": "^3.2.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
     "threebox-plugin": "^2.2.7"
   },
   "devDependencies": {
-    "@types/mapbox-gl": "^2.7.19",
+    "@types/mapbox-gl": "^3.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
